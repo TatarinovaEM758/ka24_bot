@@ -12,6 +12,19 @@ from dotenv import load_dotenv
 from oauth2client.service_account import ServiceAccountCredentials
 import json
 
+
+# ===== ОТЛАДКА GOOGLE CREDENTIALS =====
+import os
+print("🔍 ПРОВЕРКА ПЕРЕМЕННЫХ ОКРУЖЕНИЯ:")
+print(f"VK_TOKEN: {'✅ есть' if os.getenv('VK_TOKEN') else '❌ нет'}")
+print(f"GROUP_ID: {'✅ есть' if os.getenv('GROUP_ID') else '❌ нет'}")
+print(f"GOOGLE_CREDENTIALS_JSON: {'✅ есть' if os.getenv('GOOGLE_CREDENTIALS_JSON') else '❌ нет'}")
+
+if os.getenv('GOOGLE_CREDENTIALS_JSON'):
+    creds_json = os.getenv('GOOGLE_CREDENTIALS_JSON')
+    print(f"Длина JSON: {len(creds_json)} символов")
+    print(f"Начинается с: {creds_json[:50]}...")
+    
 # ===== ЗАГРУЗКА ТОКЕНОВ ИЗ .env ФАЙЛА =====
 load_dotenv()
 
